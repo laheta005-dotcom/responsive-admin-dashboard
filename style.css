@@ -1,0 +1,285 @@
+/* إعادة ضبط واختيار الخط */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* متغيرات الألوان (الوضع الفاتح والداكن) */
+:root {
+  --bg-primary: #f4f6f9;
+  --bg-secondary: #ffffff;
+  --text-color: #333333;
+  --text-muted: #777777;
+  --accent-color: #4f46e5;
+  --accent-hover: #4338ca;
+  --border-color: #e5e7eb;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-color: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* تخطيط الصفحة الرئيسي */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* الشريط الجانبي Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: 40px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.menu a:hover, .menu a.active {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* عناصر الهيدر والموبايل */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-btn, .logo-mobile {
+  display: none;
+}
+
+/* المنطقة الرئيسية Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* الهيدر العلوي Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg-secondary);
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  width: 300px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  width: 100%;
+}
+
+.theme-btn {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.2s;
+}
+
+.theme-btn:hover {
+  color: var(--accent-color);
+}
+
+/* شبكة الكروت Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-info span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.card-info h3 {
+  font-size: 1.6rem;
+  margin-top: 5px;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+/* قسم الرسم البياني والجدول */
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.panel {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.panel h3 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+/* الجدول Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+th, td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+th {
+  color: var(--text-muted);
+}
+
+/* شارات الحالة Status Badges */
+.badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.badge.active {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.badge.pending {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+/* Responsive للشاشات المتوسطة والصغيرة */
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-btn, .logo-mobile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+  }
+
+  .menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
+  .sidebar .logo {
+    display: none; /* نخفي لوجو السايدبار عشان الموبايل */
+  }
+
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  /* إخفاء القائمة افتراضياً على الموبايل */
+  .sidebar {
+    width: 100%;
+    display: none;
+    border-left: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* إظهار القائمة لما نضغط زرار Hamburger */
+  .sidebar.show-menu {
+    display: flex;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+}
